@@ -20,13 +20,3 @@ services:
     depends_on:
       - db
     command: ["./docker/app.sh"]
-
-  test:
-    build:
-      context: .
-    container_name: mobile_app_test
-    env_file:
-      - .env-non-dev
-    depends_on:
-      - db
-    command: ["pytest", "--maxfail=1", "--disable-warnings", "-q"]
